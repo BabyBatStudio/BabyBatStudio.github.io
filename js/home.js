@@ -1,18 +1,18 @@
-// Get all nav buttons
-const navButtons = document.querySelectorAll('.nav-link');
-
-// Loop through the buttons and add click event listeners
-navButtons.forEach(button => {
-  button.addEventListener('click', function() {
-    // Get the target section ID from the data-target attribute
-    const targetSectionId = this.getAttribute('data-target');
-    // Find the target section element
-    const targetSection = document.getElementById(targetSectionId);
-    
-    // Check if the target section exists
-    if (targetSection) {
-      // Scroll into view with smooth behavior
-      targetSection.scrollIntoView({ behavior: 'smooth' });
-    }
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get all buttons with data-target attributes
+    document.querySelectorAll('.nav-link').forEach(button => {
+      button.addEventListener('click', function() {
+        // Get the target section's id from the data-target attribute
+        const targetId = this.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
+  
+        // Scroll to the section smoothly if the target exists
+        if (targetSection) {
+          targetSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
   });
-});
